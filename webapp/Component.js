@@ -39,7 +39,6 @@ sap.ui.define(
         }
 
         oModel.setProperty("/layout", sLayout);
-        console.log("1000", oModel.getProperty("/layout"));
       },
     });
   }

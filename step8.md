@@ -1,6 +1,7 @@
 # Enhancing the Detail Page (cải thiện detail Page)
 
 Khi router triển khai,model của detail page sẽ được update cho từng item. Cải tiến detail page để hiện thị thông tin cụ thể cho sản phẩm đã chọn
+![alt text](image-6.png)
 
 ```xml
 <mvc:View
