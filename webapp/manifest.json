@@ -39,6 +39,12 @@
       },
       "routes": [
         {
+          "pattern": "page2",
+          "name": "page2",
+          "target": "page2",
+          "layout": "EndColumnFullScreen"
+        },
+        {
           "pattern": ":layout:",
           "name": "list",
           "target": ["list", "detail"]
@@ -65,6 +71,10 @@
         },
         "detailDetail": {
           "name": "DetailDetail",
+          "controlAggregation": "endColumnPages"
+        },
+        "page2": {
+          "name": "AboutPage",
           "controlAggregation": "endColumnPages"
         }
       }
