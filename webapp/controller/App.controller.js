@@ -14,6 +14,8 @@ sap.ui.define(
         var sRouteName = oEvent.getParameter("name"),
           oArguments = oEvent.getParameter("arguments");
 
+        this._updateUIElements();
+
         // Save the current route name
         this.currentRouteName = sRouteName;
         this.currentProduct = oArguments.product;
@@ -23,6 +25,8 @@ sap.ui.define(
       onStateChanged: function (oEvent) {
         var bIsNavigationArrow = oEvent.getParameter("isNavigationArrow"),
           sLayout = oEvent.getParameter("layout");
+
+        this._updateUIElements();
 
         // Replace the URL with the new layout if a navigation arrow was used
         if (bIsNavigationArrow) {
@@ -38,8 +42,20 @@ sap.ui.define(
         }
       },
 
+      // Update the close/fullscreen buttons visibility
+      _updateUIElements: function () {
+        var oModel = this.oOwnerComponent.getModel(),
+          oUIState;
+        this.oOwnerComponent.getHelper().then(function (oHelper) {
+          console.log("100000", oHelper.getCurrentUIState());
+          oUIState = oHelper.getCurrentUIState();
+          oModel.setData(oUIState);
+        });
+      },
+
       onExit: function () {
         this.oRouter.detachRouteMatched(this.onRouteMatched, this);
+        this.oRouter.detachBeforeRouteMatched(this.onBeforeRouteMatched, this);
       },
     });
   }
